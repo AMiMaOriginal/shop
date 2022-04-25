@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterActivity">
+
+    <EditText
+        android:id="@+id/registerUserName"
+        style="@style/inputText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/username" />
+
+    <EditText
+        android:id="@+id/registerUserPassword"
+        style="@style/inputText"
+        android:layout_below="@+id/registerUserName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/registerRepeatUserPassword"
+        style="@style/inputText"
+        android:layout_below="@+id/registerUserPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/repeatPassword" />
+
+    <Button
+        android:id="@+id/registerUser"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registerRepeatUserPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        style="@style/inputText"
+        android:text="@string/register" />
+
+    <TextView
+        android:id="@+id/registerTextError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registerUser"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/red"
+        style="@style/inputText" />
+</RelativeLayout>
