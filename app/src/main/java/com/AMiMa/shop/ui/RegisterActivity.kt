@@ -1,10 +1,8 @@
 package com.AMiMa.shop.ui
 
-import android.content.res.ColorStateList
-import android.graphics.Color
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
@@ -15,9 +13,12 @@ import com.AMiMa.shop.R
 import com.AMiMa.shop.database.Database
 import com.AMiMa.shop.database.dao.UserDao
 import com.AMiMa.shop.database.dataClasses.User
+import com.AMiMa.shop.model.CurrentUserInfo
+import com.AMiMa.shop.model.WorkInCart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.util.*
 
 class RegisterActivity : AppCompatActivity(), View.OnFocusChangeListener {
 
@@ -62,16 +63,16 @@ class RegisterActivity : AppCompatActivity(), View.OnFocusChangeListener {
 
         launch(Dispatchers.IO) {
             if (username.trim().isEmpty() || userPassword.trim().isEmpty() || userRepeatPassword.trim().isEmpty())
-                textError = "Поля не должны быть пустыми"
+                runOnUiThread { textErrorView.text = "Поля не должны быть пустыми"}
             else if (userPassword != userRepeatPassword)
-                textError = "Пароли не совпадают"
+                runOnUiThread { textErrorView.text = "Пароли не совпадают" }
             else if (database.getUser(username)?.name == username)
-                textError = "Такой логин уже занят"
-
-            if (textError.isNullOrEmpty())
+                runOnUiThread { textErrorView.text = "Такой логин занят" }
+            else {
                 database.insertUser(User(username, userPassword))
-            else
-                runOnUiThread { textErrorView.text = textError }
+                CurrentUserInfo.getInstance().setUser(User(username, userPassword))
+                startActivity(Intent(this@RegisterActivity, ListProducts::class.java))
+            }
         }
     }
 
@@ -103,5 +104,9 @@ class RegisterActivity : AppCompatActivity(), View.OnFocusChangeListener {
         username = usernameView.text.toString()
         userPassword = userPasswordView.text.toString()
         userRepeatPassword = userRepeatPasswordView.text.toString()
+    }
+
+    fun logIn(view: View?){
+        startActivity(Intent(this, LogIn::class.java))
     }
 }

@@ -3,8 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_add_product.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_cart.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_detailed_product.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_item_cart.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_item_products.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_list_products.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_log_in.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
         <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_personal_cabinet.xml" value="0.358695652173913" />
         <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/activity_toolbar.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/fragment_1.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/fragment_2.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/layout/item_products.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/AMiMa/AndroidStudioProjects/Shop/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/routes">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/routes"
+    app:startDestination="@id/listProducts2">
 
+
+    <activity
+        android:id="@+id/listProducts2"
+        android:name="com.AMiMa.shop.ui.ListProducts"
+        android:label="activity_list_products"
+        tools:layout="@layout/activity_list_products" />
+    <activity
+        android:id="@+id/personalCabinet2"
+        android:name="com.AMiMa.shop.ui.PersonalCabinet"
+        android:label="activity_personal_cabinet"
+        tools:layout="@layout/activity_personal_cabinet" />
 </navigation>

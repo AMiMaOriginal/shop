@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group>
+        <item
+            android:id="@+id/personalCabinet"
+            android:title="Личный кабинет" />
+    </group>
+
+    <item android:title="Категории">
+        <menu>
+            <item android:title="Фрукты"
+                android:id="@+id/cart"/>
+            <item android:title="Овощи"
+                android:id="@+id/log"/>
+        </menu>
+    </item>
+
 </menu>
