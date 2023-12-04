@@ -21,8 +21,8 @@ class WorkInCart private constructor() {
 
     fun getListProducts() = listProduct
 
-    fun getTotalPrice() : Int {
-        var totalPrice = 0
+    fun getTotalPrice() : Double {
+        var totalPrice = 0.0
         listProduct.forEach{ totalPrice += it.price * it.count }
         return totalPrice
     }

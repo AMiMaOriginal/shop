@@ -78,7 +78,7 @@ class AddProduct : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             else if (database.getProduct(nameProduct, priceProduct, categoryProduct) != null)
                 runOnUiThread { addErrorView.text = "Такой товар уже существует" }
             else {
-                database.addProduct(Product(nameProduct, priceProduct.toInt(), categoryProduct))
+                database.addProduct(Product(nameProduct, priceProduct.toDouble(), categoryProduct, ""))
                 finish()
             }
         }

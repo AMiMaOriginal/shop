@@ -1,5 +1,6 @@
 package com.AMiMa.shop.ui.adapters
 
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.AMiMa.shop.R
 import com.AMiMa.shop.database.dataClasses.Product
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import java.net.URL
 
 class AdapterForProducts(private val data: List<Product>) : RecyclerView.Adapter<AdapterForProducts.MyViewHolder>() {
 
@@ -25,8 +30,13 @@ class AdapterForProducts(private val data: List<Product>) : RecyclerView.Adapter
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.name.text = data[position].name
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) = runBlocking{
+        launch(Dispatchers.IO) {
+            val url = URL(data[position].imageURL)
+            val input = url.openStream()
+            holder.image.setImageBitmap(BitmapFactory.decodeStream(input))
+        }
+        holder.name.text = data[position].description
         holder.price.text = data[position].price.toString()
         holder.product.id = position
     }

@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.*
 
-class RegisterActivity : AppCompatActivity(), View.OnFocusChangeListener {
+class RegisterActivity : AppCompatActivity() {
 
     private lateinit var usernameView: EditText
     private lateinit var userPasswordView: EditText
@@ -41,11 +41,8 @@ class RegisterActivity : AppCompatActivity(), View.OnFocusChangeListener {
         database = Database.getDatabase(this)!!.usersDao()
 
         usernameView = findViewById(R.id.registerUserName)
-        usernameView.onFocusChangeListener = this
         userPasswordView = findViewById(R.id.registerUserPassword)
-        userPasswordView.onFocusChangeListener = this
         userRepeatPasswordView = findViewById(R.id.registerRepeatUserPassword)
-        userRepeatPasswordView.onFocusChangeListener = this
         userRepeatPasswordView.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 addUser()
@@ -72,30 +69,6 @@ class RegisterActivity : AppCompatActivity(), View.OnFocusChangeListener {
                 database.insertUser(User(username, userPassword))
                 CurrentUserInfo.getInstance().setUser(User(username, userPassword))
                 startActivity(Intent(this@RegisterActivity, ListProducts::class.java))
-            }
-        }
-    }
-
-    override fun onFocusChange(view: View?, focus: Boolean) {
-        initInputText()
-        when (view?.id) {
-            R.id.registerUserName -> {
-                if (username == getString(R.string.username)) {
-                    usernameView.setTextColor(ContextCompat.getColor(this, R.color.black))
-                    usernameView.setText("")
-                }
-            }
-            R.id.registerUserPassword -> {
-                if (userPassword == getString(R.string.password)) {
-                    userPasswordView.setTextColor(ContextCompat.getColor(this, R.color.black))
-                    userPasswordView.setText("")
-                }
-            }
-            R.id.registerRepeatUserPassword -> {
-                if (userRepeatPassword == getString(R.string.repeatPassword)) {
-                    userRepeatPasswordView.setTextColor(ContextCompat.getColor(this, R.color.black))
-                    userRepeatPasswordView.setText("")
-                }
             }
         }
     }

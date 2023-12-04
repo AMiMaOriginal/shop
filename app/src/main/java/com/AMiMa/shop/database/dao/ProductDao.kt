@@ -15,7 +15,7 @@ interface ProductDao {
     @Delete
     fun deleteProduct(product: Product)
 
-    @Query("SELECT * FROM Product WHERE name = :name AND price = :price AND category = :category")
+    @Query("SELECT * FROM Product WHERE description = :name AND price = :price AND category = :category")
     fun getProduct(name: String, price: String, category: String): Product?
 
     @Query("SELECT * FROM Product")

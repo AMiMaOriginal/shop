@@ -22,7 +22,7 @@ class AdapterForCart(private val data: List<Product>) : RecyclerView.Adapter<Ada
     }
 
     override fun onBindViewHolder(holder: MyViewHolders, position: Int) {
-        holder.name.text = data[position].name
+        holder.name.text = data[position].description
         holder.price.text = (data[position].price * data[position].count).toString()
         holder.count.text = data[position].count.toString()
     }

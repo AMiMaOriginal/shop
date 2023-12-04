@@ -18,6 +18,7 @@ import com.AMiMa.shop.database.Parser
 import com.AMiMa.shop.database.dao.ProductDao
 import com.AMiMa.shop.database.dataClasses.Product
 import com.AMiMa.shop.ui.adapters.AdapterForProducts
+import com.google.gson.Gson
 import org.jsoup.Jsoup
 import java.net.URL
 import kotlin.concurrent.thread
@@ -42,7 +43,7 @@ class ListProducts : AppCompatActivity() {
         listProduct = findViewById(R.id.listProducts)
         listProduct.apply {
             layoutManager = LinearLayoutManager(this@ListProducts)
-            //adapter = AdapterForProducts(data)
+            adapter = AdapterForProducts(data)
         }
 
         if (admin){
@@ -57,15 +58,12 @@ class ListProducts : AppCompatActivity() {
 
     private fun initProducts() {
         val parser = Parser()
-        parser.connect()
+        data = parser.product
     }
 
     fun getDetailedProduct(view: View){
         var intent = Intent(this, DetailedProduct::class.java)
-        val product = data[view.id]
-        intent.putExtra("name", product.name)
-        intent.putExtra("price", product.price)
-        intent.putExtra("category", product.category)
+        intent.putExtra("product", Gson().toJson(data[view.id]))
         startActivity(intent)
     }
 
